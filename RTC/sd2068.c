@@ -27,6 +27,8 @@ void I2C0_Init(void)
 //----------------------IIC0写一个字节子函数------------------------------------
 void I2C0_ByteWrite(uchar TXdata, uchar Addr)
 {
+    return;
+
     __delay_cycles(100000);
     while( UCB0CTL1 & UCTXSTP );                    // 确保停止条件没有产生
     UCB0CTL1 |= UCTR;                               // 写模式
@@ -41,7 +43,8 @@ void I2C0_ByteWrite(uchar TXdata, uchar Addr)
 }
 //-----------------IIC0读一个字节子函数-----------------------------------------
 uchar I2C0_ByteRead(uchar Addr)
-{
+{  return 0;
+
     uchar re;
     
     __delay_cycles(100000);

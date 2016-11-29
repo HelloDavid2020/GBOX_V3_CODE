@@ -63,6 +63,8 @@ uchar I2C2_ByteRead(uint Addr)
 //-----------IIC2写多个字节（最多128个字节）子函数------------------------------
 void eeprom_PageWrite(uchar* pBuffer, uint WriteAddr, uchar NumByteToWrite)
 {
+    return;
+
     __delay_cycles(100000);
 	//EEP_WP_DISABLE;                                     // 写保护禁止
 	while( UCB2CTL1 & UCTXSTP );                        // 确保停止条件没有产生
@@ -86,6 +88,7 @@ void eeprom_PageWrite(uchar* pBuffer, uint WriteAddr, uchar NumByteToWrite)
 //-----------IIC2读多个字节（最多128个字节）子函数------------------------------
 void eeprom_PageRead(uchar* pBuffer, uint WriteAddr, uchar NumByteToRead)
 {
+  return;
     __delay_cycles(100000);
 	while( UCB2CTL1 & UCTXSTP );                        // 确保停止条件没有产生
     UCB2CTL1 |= UCTR;                                   // 写模式

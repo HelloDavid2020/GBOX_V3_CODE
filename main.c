@@ -23,8 +23,8 @@
 void main( void )
 {
     WDTCTL = WDTPW + WDTHOLD;   // 关闭看门狗
-    Clock_init();
-    //dco_int();
+    Clock_init();// 开启外部时钟源
+    //dco_int(); // 开启内部时钟源
     gpio_init();
 
     EEP_POWER_ON;PULL_UP_ON;
@@ -34,7 +34,7 @@ void main( void )
     GPS_POWER_OFF2;
     GSM_POWER_INIT;
     GSM_POWER_OFF;
-    I2C2_Init();
+    I2C2_Init(); // ATMLH520
     I2C0_Init();
     
     gps_port_init();

@@ -100,7 +100,7 @@ void device_start(void)
     SerialPutString("\r\n\r\n");
     SerialPutString("====================================\r\n");
     SerialPutString("Welcom to GPS Tracker.  G-BOXV104 <GCODE_V104_150202d>\r\n");
-    eeprom_PageRead(device_number, 0x0001, 8); 
+    //eeprom_PageRead(device_number, 0x0001, 8); 
     sprintf(buf,    "Device S/N: %.*s\r\n", 8, device_number);
     SerialPutString( buf);
     SerialPutString("====================================\r\n\r\n");    
@@ -110,47 +110,47 @@ void device_start(void)
     config_num = 0;//清接受数据量
     UCA3IE |= UCRXIE;           // 开串口3接受中断
     
-    if( EEPROM_Password != ( (I2C2_ByteRead(126) << 8) | I2C2_ByteRead(127) ) )// 判断设备设备是否为首次启动
-    {
-        __delay_cycles(10000);
-        if( EEPROM_Password != ( (I2C2_ByteRead(126) << 8) | I2C2_ByteRead(127) ) )
-        {
-            printf("\r\n设备首次启动\r\n");
-            printf("\r\n正在初始化系统参数\r\n");
-            eeprom_PageWrite( (void*)config_data, 0x0000, 128);
-            __delay_cycles(100000);
-            RTC_year = 0x0E;
-            RTC_mon = 0x01;
-            RTC_day = 0x01;
-            RTC_hour = 0x00;
-            RTC_min = 0x00;
-            RTC_sec = 0x00;
-            Write_time();
-            printf("\r\n系统初始化完成\r\n");
-        }
-    }
-    if((I2C0_ByteRead(0x0F) & 0x01) == 0x01)
-    {
-        printf("\r\n设备曾断电，时钟信息无效，开始初始化时钟\r\n");
-        RTC_year = 0x0E;
-        RTC_mon = 0x01;
-        RTC_day = 0x01;
-        RTC_hour = 0x00;
-        RTC_min = 0x00;
-        RTC_sec = 0x00;
-        Write_time();
-    }
-    
-    __delay_cycles(10000);
-    system_rst = I2C2_ByteRead(0x003B);
-    __delay_cycles(10000);
-    system_rst = (system_rst << 8) + I2C2_ByteRead(0x003C);
-    __delay_cycles(10000);
-    system_rst++;
-    I2C2_ByteWrite((uchar)(system_rst >> 8), 0x003B);
-    __delay_cycles(10000);
-    I2C2_ByteWrite((uchar)(system_rst), 0x003C);
-    __delay_cycles(10000);
+//    if( EEPROM_Password != ( (I2C2_ByteRead(126) << 8) | I2C2_ByteRead(127) ) )// 判断设备设备是否为首次启动
+//    {
+//        __delay_cycles(10000);
+//        if( EEPROM_Password != ( (I2C2_ByteRead(126) << 8) | I2C2_ByteRead(127) ) )
+//        {
+//            printf("\r\n设备首次启动\r\n");
+//            printf("\r\n正在初始化系统参数\r\n");
+//            eeprom_PageWrite( (void*)config_data, 0x0000, 128);
+//            __delay_cycles(100000);
+//            RTC_year = 0x0E;
+//            RTC_mon = 0x01;
+//            RTC_day = 0x01;
+//            RTC_hour = 0x00;
+//            RTC_min = 0x00;
+//            RTC_sec = 0x00;
+//            Write_time();
+//            printf("\r\n系统初始化完成\r\n");
+//        }
+//    }
+//    if((I2C0_ByteRead(0x0F) & 0x01) == 0x01)
+//    {
+//        printf("\r\n设备曾断电，时钟信息无效，开始初始化时钟\r\n");
+//        RTC_year = 0x0E;
+//        RTC_mon = 0x01;
+//        RTC_day = 0x01;
+//        RTC_hour = 0x00;
+//        RTC_min = 0x00;
+//        RTC_sec = 0x00;
+//        Write_time();
+//    }
+//    
+//    __delay_cycles(10000);
+//    system_rst = I2C2_ByteRead(0x003B);
+//    __delay_cycles(10000);
+//    system_rst = (system_rst << 8) + I2C2_ByteRead(0x003C);
+//    __delay_cycles(10000);
+//    system_rst++;
+//    I2C2_ByteWrite((uchar)(system_rst >> 8), 0x003B);
+//    __delay_cycles(10000);
+//    I2C2_ByteWrite((uchar)(system_rst), 0x003C);
+//    __delay_cycles(10000);
 
     //check_key();
 }
