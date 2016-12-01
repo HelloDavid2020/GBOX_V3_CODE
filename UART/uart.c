@@ -40,9 +40,12 @@ void debug_port_init( unsigned int baud_rate )
   switch(baud_rate)
   {
     case 9600:
-      UCA3BR0 = 0x00;             // 7.3728M晶振115200波特率设置
+//      UCA3BR0 = 0x00;             // 7.3728M晶振115200波特率设置
+//      UCA3BR1 = 0x03;             // 7.3728M晶振115200波特率设置
+//      UCA3MCTL = 0x00;            // 7.3728M晶振115200波特率设置  
+      UCA3BR0 = 0x41;             // 7.3728M晶振115200波特率设置
       UCA3BR1 = 0x03;             // 7.3728M晶振115200波特率设置
-      UCA3MCTL = 0x00;            // 7.3728M晶振115200波特率设置  
+      UCA3MCTL = 0x00;            // 7.3728M晶振115200波特率设置        
       break;
     case 38400:
       UCA3BR1 = 0x00;             // 7.3728M晶振115200波特率设置

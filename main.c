@@ -23,10 +23,14 @@
 void main( void )
 {
     WDTCTL = WDTPW + WDTHOLD;   // 关闭看门狗
-    Clock_init();// 开启外部时钟源
-    //dco_int(); // 开启内部时钟源
+    //Clock_init();// 开启外部时钟源
+    dco_int(); // 开启内部时钟源,实际32.81K,
     gpio_init();
+  P11DIR |= 0x07;                           // ACLK, MCLK, SMCLK set out to pins
+  P11SEL |= 0x07;                           // P11.0,1,2 for debugging purposes.
 
+  
+  P1DIR |= BIT5;                            // P1.0 output
     EEP_POWER_ON;PULL_UP_ON;
     GPS_POWER_INIT;
     GPS_POWER_OFF;
@@ -39,28 +43,35 @@ void main( void )
     
     gps_port_init();
     gsm_port_init();
-    debug_port_init(1);
+    debug_port_init(115200);
     
-    TimeA0_init();
-    #ifdef WDG
-    WDTCTL = WDT_ARST_250;
-    #endif
-    AD_init();
-    
-    _BIS_SR(GIE);   // 开启总中断
-    device_start(); // EEPROM RTC KEY
+//    TimeA0_init();
+//    #ifdef WDG
+//    WDTCTL = WDT_ARST_250;
+//    #endif
+//    AD_init();
+//    
+//    _BIS_SR(GIE);   // 开启总中断
+//    device_start(); // EEPROM RTC KEY
 
     while(1)    
     {
-        system_start();
-        #ifdef WDG
-        WDTCTL = WDT_ARST_250;
-        #endif
+//        system_start();
+//        #ifdef WDG
+//        WDTCTL = WDT_ARST_250;
+//        #endif
+//
+//        //work_mode=2;
+//        printf("work mode : %d\r\n",work_mode);
+//        printf("work time : %d mins\r\n",work_time);
+//        printf("sleep time: %d mins\r\n",sleep_time);
+//        work_mode_handler(work_mode);
+          P1OUT ^= BIT5;                          // Toggle P1.0
 
-        //work_mode=2;
-        printf("work mode : %d\r\n",work_mode);
-        printf("work time : %d mins\r\n",work_time);
-        printf("sleep time: %d mins\r\n",sleep_time);
-        work_mode_handler(work_mode);
+          //SerialPutString("Welcom to GPS Tracker.  G-BOXV104 <GCODE_V104_150202d>\r\n");
+ //__delay_cycles(600000);      // 146.3ms/2           // Delay
+  __delay_cycles(820230);      // 173ms/2           // Delay
+
+ 
     }
 }
