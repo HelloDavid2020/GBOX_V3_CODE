@@ -12,10 +12,10 @@
 #define uchar unsigned char 
 #define uint unsigned int
 
-#define     GPS_POWER_INIT      P1DIR |= BIT4
-#define     GPS_POWER_ON        P1OUT |= BIT4
-#define     GPS_POWER_OFF       P1OUT &= ~BIT4
-#define     GPS_POWER_RESET     P1DIR &= ~BIT4
+#define     GPS_POWER_INIT      P3DIR |= BIT6
+#define     GPS_POWER_ON        P3OUT |= BIT6
+#define     GPS_POWER_OFF       P3OUT &= ~BIT6
+#define     GPS_POWER_RESET     P3DIR &= ~BIT6
 
 
 #define     GPS_POWER_INIT2     P1DIR |= BIT2

@@ -1,5 +1,5 @@
 [DebugChecksum]
-Checksum=-881368863
+Checksum=1120766862
 [Stack]
 FillEnabled=0
 OverflowWarningsEnabled=1
@@ -29,10 +29,15 @@ ShowArgs=0
 MixedMode=1
 [State Storage]
 Control Register=-1
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Aliases]
+Count=0
+SuppressDialog=0
 [Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\device.c}.109.5" 0 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\UART\uart.c}.92.5" 1 0 0 0 "" 0 ""
-Count=2
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\UART\uart.c}.92.5" 1 0 0 0 "" 0 ""
+Count=1
 [FET]
 Clock mode=46
 Extended Clock mode=1039
@@ -57,9 +62,3 @@ File name=
 LoggingEnabled=_ 0
 LogFile=_ ""
 Category=_ 0
-[TermIOLog]
-LoggingEnabled=_ 0
-LogFile=_ ""
-[Aliases]
-Count=0
-SuppressDialog=0

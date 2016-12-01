@@ -12,6 +12,9 @@ __interrupt void USCI_A0_ISR(void)
             break;                                      // Vector 0 - no interrupt
         case 2:                                         // Vector 2 - RXIFG  
             gps_buffer[dataLen++] = UCA0RXBUF;
+              while (!(UCA3IFG&UCTXIFG));   
+  UCA3TXBUF = UCA0RXBUF; 
+            //SerialPutString(UCA0RXBUF);
             if(dataLen >= NMEA_COUNT_MAX) 
             {    
               disable_gps_irq();  // ½ûÖ¹½ÓÊÕÖÐ¶Ï
