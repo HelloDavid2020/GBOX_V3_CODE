@@ -94,7 +94,7 @@ void dco_int(void) // 开启内部时钟源， 倍频到 7.3728 MHz
   __bis_SR_register(SCG0);                  // Disable the FLL control loop
   UCSCTL0 = 0x0000;                         // Set lowest possible DCOx, MODx
   UCSCTL1 = DCORSEL_5;                      // Select DCO range 24MHz operation
-  UCSCTL2 = FLLD_1 + 223;                   // Set DCO Multiplier for 7.3728MHz
+  UCSCTL2 = FLLD_1 + 249;                   // Set DCO Multiplier for 7.3728MHz
                                             // (N + 1) * FLLRef = Fdco
                                             // (223 + 1) * 32768 = 8MHz
                                             // Set FLL Div = fDCOCLK/2

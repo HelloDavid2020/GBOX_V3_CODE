@@ -1,5 +1,5 @@
 [DebugChecksum]
-Checksum=-1962367904
+Checksum=-1963585090
 [Stack]
 FillEnabled=0
 OverflowWarningsEnabled=1
@@ -29,15 +29,10 @@ ShowArgs=0
 MixedMode=1
 [State Storage]
 Control Register=-1
-[Log file]
-LoggingEnabled=_ 0
-LogFile=_ ""
-Category=_ 0
-[TermIOLog]
-LoggingEnabled=_ 0
-LogFile=_ ""
 [Breakpoints]
-Count=0
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\main.c}.53.5" 1 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\RTC\sd2068.c}.149.5" 1 0 0 0 "" 0 ""
+Count=2
 [FET]
 Clock mode=46
 Extended Clock mode=1039
@@ -58,6 +53,13 @@ SP=0
 SR=0
 all registers=0
 File name=
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
 [Aliases]
 Count=0
 SuppressDialog=0

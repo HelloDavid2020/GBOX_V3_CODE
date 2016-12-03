@@ -10,7 +10,7 @@ void gpio_init(void)
   P6OUT &= ~BIT1; 
 
   // 光敏检测
-  P1DIR &= ~BIT5;  // P6.1 设置为下拉输入模式  
+//  P1DIR &= ~BIT5;  // P6.1 设置为下拉输入模式  
   
   // ADC
   P6DIR |= BIT5;

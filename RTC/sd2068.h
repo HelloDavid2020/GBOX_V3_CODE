@@ -4,8 +4,8 @@
 #define uchar unsigned char 
 #define uint unsigned int
 
-#define PULL_UP_ON     P2DIR |= BIT6;P2OUT |= BIT6 
-#define PULL_UP_OFF    P2DIR |= BIT6;P2OUT &= ~BIT3 
+#define PULL_UP_ON     P2DIR |= BIT1;P2OUT |= BIT1 
+#define PULL_UP_OFF    P2DIR |= BIT1;P2OUT &= ~BIT1 
 
 
 #define IIC0_IO_INIT            P3SEL |= (BIT1+BIT2)    // ÅäÖÃ¹¦ÄÜ¿Ú

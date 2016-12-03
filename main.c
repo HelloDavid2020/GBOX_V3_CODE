@@ -23,17 +23,19 @@
 void main( void )
 {
     WDTCTL = WDTPW + WDTHOLD;   // 关闭看门狗
-    Clock_init();
-    //dco_int();
+    //Clock_init();
+    dco_int();
     gpio_init();
 
-    EEP_POWER_ON;PULL_UP_ON;
+    EEP_POWER_ON; // EEPROM
+    PULL_UP_ON;   // RTC
     GPS_POWER_INIT;
     GPS_POWER_OFF;
-    GPS_POWER_INIT2;
-    GPS_POWER_OFF2;
+//    GPS_POWER_INIT2;
+//    GPS_POWER_OFF2;
     GSM_POWER_INIT;
-    GSM_POWER_OFF;
+    GSM_POWER_ON;
+    GSM_PWR_KEY_ON;
     I2C2_Init();
     I2C0_Init();
     
@@ -42,9 +44,9 @@ void main( void )
     debug_port_init(1);
     
     TimeA0_init();
-    #ifdef WDG
-    WDTCTL = WDT_ARST_250;
-    #endif
+//    #ifdef WDG
+//    WDTCTL = WDT_ARST_250;
+//    #endif
     AD_init();
     
     _BIS_SR(GIE);   // 开启总中断
@@ -52,15 +54,16 @@ void main( void )
 
     while(1)    
     {
-        system_start();
-        #ifdef WDG
-        WDTCTL = WDT_ARST_250;
-        #endif
-
-        //work_mode=2;
-        printf("work mode : %d\r\n",work_mode);
-        printf("work time : %d mins\r\n",work_time);
-        printf("sleep time: %d mins\r\n",sleep_time);
+//        system_start();
+//        #ifdef WDG
+//        WDTCTL = WDT_ARST_250;
+//        #endif
+//
+//        //work_mode=2;
+//        printf("work mode : %d\r\n",work_mode);
+//        printf("work time : %d mins\r\n",work_time);
+//        printf("sleep time: %d mins\r\n",sleep_time);
+      work_mode=2;
         work_mode_handler(work_mode);
     }
 }

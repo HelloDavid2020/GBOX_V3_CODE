@@ -88,14 +88,14 @@ void show_device_status(void)
 void device_start(void)
 {
   uchar buf[100];
-    GPS_POWER_INIT;
-    GPS_POWER_OFF;
-    GPS_POWER_INIT2;
-    GPS_POWER_OFF2;
-    GSM_POWER_INIT;
-    GSM_POWER_OFF;
+//    GPS_POWER_INIT;
+//    GPS_POWER_OFF;
+//    GPS_POWER_INIT2;
+//    GPS_POWER_OFF2;
+//    GSM_POWER_INIT;
+//    GSM_POWER_OFF;
     PULL_UP_ON;
-    led_start();
+    //led_start();
     
     SerialPutString("\r\n\r\n");
     SerialPutString("====================================\r\n");

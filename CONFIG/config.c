@@ -27,7 +27,7 @@ unsigned long int config_temp_data;
 uint w,q,a;
 
 char command_rec_enable = 0;
-uchar debug =0;
+uchar debug =1;
 // 加入一个壳子shell，只有收到特定指令，才允许进行EEPROM读写操作。
 // AT+RW=ENBALE
 void scan_command(void)
