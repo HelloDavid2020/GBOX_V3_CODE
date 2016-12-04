@@ -5,8 +5,10 @@
 #define uint unsigned int
 
 #define     GSM_POWER_INIT      P9DIR |= BIT6;P1DIR |= BIT3
-#define     GSM_POWER_ON        P9OUT |= BIT6;P1OUT |= BIT3
-#define     GSM_POWER_OFF       P9OUT &= ~BIT6;P1OUT &= ~BIT3
+#define     GSM_POWER_ON        P9OUT |= BIT6;P1OUT &= ~BIT3
+
+#define     GSM_POWER_OFF       P9OUT &= ~BIT6;P1OUT |= BIT3
+
 #define     GSM_PWR_KEY_ON      P8DIR |= BIT4;P8OUT |= BIT4
 #define     GSM_PWR_KEY_OFF     P8DIR |= BIT4;P8OUT &= ~BIT4
 

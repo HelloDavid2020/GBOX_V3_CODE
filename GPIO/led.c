@@ -49,7 +49,6 @@ void led_toggle(void)
 P1OUT ^= BIT5; // Toggle P1.0
 //    P2OUT ^= BIT1; // Toggle P1.0
 //    P5OUT ^= BIT4; // Toggle P1.0  
-    ray_value = RAY;
     printf( "> GSM_status: 0x%02X,  data_send_flag: %d, blind_data_size:% d\r\n", GSM_status,data_send_flag,blind_data_size);
   }
   

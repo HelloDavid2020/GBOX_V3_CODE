@@ -12,16 +12,16 @@ __interrupt void USCI_A0_ISR(void)
             break;                                      // Vector 0 - no interrupt
         case 2:                                         // Vector 2 - RXIFG  
             gps_buffer[dataLen++] = UCA0RXBUF;
-            if(dataLen >= NMEA_COUNT_MAX) 
-            {    
-              disable_gps_irq();  // 禁止接收中断
-              dataLen = 0;
-              gpsRxFlag = 1; // 接收完成标志置位
-            } 
+//            if(dataLen >= NMEA_COUNT_MAX) 
+//            {    
+//              disable_gps_irq();  // 禁止接收中断
+//              dataLen = 0;
+//              gpsRxFlag = 1; // 接收完成标志置位
+//            } 
           
           
           //GPS_analysis(UCA0RXBUF);        // 调用GPS解析函数
-          if(gps_debug_flag == 1)
+          //if(gps_debug_flag == 1)
           SerialPutChar(UCA0RXBUF); 
             
             break;

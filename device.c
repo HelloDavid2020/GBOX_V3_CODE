@@ -308,7 +308,10 @@ void gps_mode(void)
   GPS_POWER_ON;       // 打开GPS电源
   GPS_POWER_INIT2;     // GPS电源管脚初始化
   GPS_POWER_ON2;       // 打开GPS电源
-  
+      __delay_cycles(10000);
+    __delay_cycles(10000);
+    __delay_cycles(10000);
+
   // 系统休眠
     //--------------------------------------------------------------------------
   //debug  =1;
@@ -342,9 +345,9 @@ void gps_mode(void)
 
   while(1)
   {
-    #ifdef WDG
-    WDTCTL = WDT_ARST_250;
-    #endif
+//    #ifdef WDG
+//    WDTCTL = WDT_ARST_250;
+//    #endif
     GSM();
     
     //uscia_config();

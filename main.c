@@ -30,12 +30,18 @@ void main( void )
     EEP_POWER_ON; // EEPROM
     PULL_UP_ON;   // RTC
     GPS_POWER_INIT;
-    GPS_POWER_OFF;
+    GPS_POWER_ON;
+    __delay_cycles(100000);
+    __delay_cycles(100000);
+    __delay_cycles(100000);
+    __delay_cycles(100000);
+
 //    GPS_POWER_INIT2;
 //    GPS_POWER_OFF2;
     GSM_POWER_INIT;
-    GSM_POWER_ON;
-    GSM_PWR_KEY_ON;
+    GSM_POWER_OFF;
+//    GSM_POWER_ON;
+    GSM_PWR_KEY_OFF;
     I2C2_Init();
     I2C0_Init();
     
@@ -64,6 +70,6 @@ void main( void )
 //        printf("work time : %d mins\r\n",work_time);
 //        printf("sleep time: %d mins\r\n",sleep_time);
       work_mode=2;
-        work_mode_handler(work_mode);
+      //  work_mode_handler(work_mode);
     }
 }
