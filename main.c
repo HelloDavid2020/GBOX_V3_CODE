@@ -38,8 +38,7 @@ void main( void )
 
 //    GPS_POWER_INIT2;
 //    GPS_POWER_OFF2;
-    GSM_POWER_INIT;
-    GSM_POWER_OFF;
+
 //    GSM_POWER_ON;
     GSM_PWR_KEY_OFF;
     I2C2_Init();
@@ -57,7 +56,8 @@ void main( void )
     
     _BIS_SR(GIE);   // 开启总中断
     device_start(); // EEPROM RTC KEY
-
+    GSM_POWER_INIT;
+    GSM_POWER_OFF;
     while(1)    
     {
 //        system_start();
@@ -65,11 +65,45 @@ void main( void )
 //        WDTCTL = WDT_ARST_250;
 //        #endif
 //
-//        //work_mode=2;
+//        work_mode=2;
 //        printf("work mode : %d\r\n",work_mode);
 //        printf("work time : %d mins\r\n",work_time);
 //        printf("sleep time: %d mins\r\n",sleep_time);
-      work_mode=2;
-      //  work_mode_handler(work_mode);
+//      work_mode=2;
+//work_mode_handler(work_mode);
+
+led_toggle();    
+__delay_cycles(1000000);
+__delay_cycles(1000000);
+__delay_cycles(1000000);
+__delay_cycles(1000000);
+
+//
+   if(gpsRxFlag==1)
+   {
+    gpsRxFlag = 0;
+    GPSParse();
+    printf("\r\nStatus: %c\r\nLat: %s\r\nLon: %s\r\nSpeed: %s\r\n",GpsInfo.Status,GpsInfo.Latitude,GpsInfo.Longitude,GpsInfo.Speed);
+    enable_gps_irq();
+    }
+//    if(GpsData.Status == 1 && gps_start ==1)
+//    {
+
+//      {
+//        // close GPS
+//        gps_start = 0;
+//        GPS_POWER_INIT;     // GPS电源管脚初始化
+//        GPS_POWER_OFF;       // 打开GPS电源
+//        GPS_POWER_INIT2;     // GPS电源管脚初始化
+//        GPS_POWER_OFF2;       // 打开GPS电源
+//              
+//      }
+//      LED_ON;
+//      printf("\r\n \a\a\a GPS已定位 %d \a\a\a \r\n",GPS_analysis_end);
+//    }
+//    
+//    enable_gps_irq();
+//   }
+
     }
 }

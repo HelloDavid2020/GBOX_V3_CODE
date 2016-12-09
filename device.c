@@ -300,14 +300,14 @@ void lbs_mode(void)
 void gps_mode(void)
 {
   // 设置1分钟闹钟触发 ---> 开启GSM
-  Write_alarm(1);
+  //Write_alarm(1);
   RTC_INIT_ON;
    
   // 开启GPS
   GPS_POWER_INIT;     // GPS电源管脚初始化
   GPS_POWER_ON;       // 打开GPS电源
-  GPS_POWER_INIT2;     // GPS电源管脚初始化
-  GPS_POWER_ON2;       // 打开GPS电源
+//  GPS_POWER_INIT2;     // GPS电源管脚初始化
+//  GPS_POWER_ON2;       // 打开GPS电源
       __delay_cycles(10000);
     __delay_cycles(10000);
     __delay_cycles(10000);
@@ -327,21 +327,21 @@ void gps_mode(void)
   
   LED_OFF;
 
-  LPM3;   
-  gps_start=1;
-  _NOP();  
-  _NOP();
-  _NOP();
-  _NOP();
-  _NOP();
-  
-  Read_time();
+//  LPM3;   
+//  gps_start=1;
+//  _NOP();  
+//  _NOP();
+//  _NOP();
+//  _NOP();
+//  _NOP();
+//  
+//  Read_time();
   printf("\r\n> □□□ Exit LPM3 mode.  <%d> □□□ 20%02d-%02d-%02d %02d:%02d:%02d\r\n",gps_start,RTC_year,RTC_mon,RTC_day,RTC_hour,RTC_min,RTC_sec);
-  Write_alarm(work_time);
-  RTC_INIT_ON;
+//  Write_alarm(work_time);
+//  RTC_INIT_ON;
   
-  GSM_POWER_INIT;     // GSM电源管脚初始化
-  GSM_POWER_ON;       // 打开GSM电源
+//  GSM_POWER_INIT;     // GSM电源管脚初始化
+//  GSM_POWER_ON;       // 打开GSM电源
 
   while(1)
   {

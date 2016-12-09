@@ -1,5 +1,5 @@
 [DebugChecksum]
-Checksum=-2146047740
+Checksum=-1836378873
 [Stack]
 FillEnabled=0
 OverflowWarningsEnabled=1
@@ -30,8 +30,8 @@ MixedMode=1
 [State Storage]
 Control Register=-1
 [Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\device.c}.357.5" 0 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\device.c}.354.5" 0 0 0 0 "" 0 ""
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\isr.c}.47.15" 1 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\device.c}.357.5" 0 0 0 0 "" 0 ""
 Count=2
 [FET]
 Clock mode=46

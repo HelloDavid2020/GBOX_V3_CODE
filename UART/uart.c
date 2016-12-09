@@ -75,7 +75,7 @@ void debug_port_init( unsigned int baud_rate )
 //---------------串口打印子函数-------------------------------------------------
 int putchar( int ch )
 {  
-  if (debug == 0) return 0;
+  //if (debug == 0) return 0;
   while (!(UCA3IFG&UCTXIFG));   
   UCA3TXBUF = ch; 
   return ch;
