@@ -26,6 +26,10 @@ void main( void )
     //Clock_init();
     dco_int();
     gpio_init();
+    
+    P8DIR |= BIT3;
+    P8OUT &= ~BIT3;
+    P8OUT |= BIT3;
 
     EEP_POWER_ON; // EEPROM
     PULL_UP_ON;   // RTC
@@ -58,6 +62,9 @@ void main( void )
     device_start(); // EEPROM RTC KEY
     GSM_POWER_INIT;
     GSM_POWER_OFF;
+        
+    P9DIR |= BIT7;
+    P9OUT |= BIT7;
     while(1)    
     {
 //        system_start();
